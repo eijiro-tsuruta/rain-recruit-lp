@@ -44,6 +44,7 @@ const faqs = [
   ["日程変更やキャンセルにも対応できますか？", "はい。応募者からの変更・キャンセル・相談を対応依頼として整理し、担当者の確認につなげます。"],
   ["自社のLINE公式アカウントを利用できますか？", "はい。導入企業が所有するLINE公式アカウントへの接続を前提としています。接続条件はヒアリング時に確認します。"],
   ["応募者データは誰が所有しますか？", "LINE公式アカウント、Googleアカウント、応募者データは導入企業が所有します。具体的な取扱いは契約・運用設計時に明確にします。"],
+  ["面接評価・記録付きプランでは、AIが応募者を採点しますか？", "いいえ。企業が定めた評価項目に沿って、採用担当者が入力したスコアや所見を整理する機能です。性格・表情・声・容姿などをAIが評価したり、スコアだけで採用・不採用を決定したりするものではありません。"],
 ];
 
 const Arrow = () => <span aria-hidden="true">→</span>;
@@ -57,7 +58,10 @@ export default function Home() {
     operatingSystem: "Web, LINE",
     description: "LINEでの応募者対応とGoogleでの採用管理をつなぐ採用支援サービス",
     url: siteConfig.siteUrl,
-    offers: { "@type": "Offer", availability: "https://schema.org/PreOrder" },
+    offers: [
+      { "@type": "Offer", name: "スタンダード", price: "25000", priceCurrency: "JPY" },
+      { "@type": "Offer", name: "面接評価・記録付き", price: "35000", priceCurrency: "JPY" },
+    ],
   };
 
   return (
@@ -69,9 +73,10 @@ export default function Home() {
           <span>Rain Recruit</span>
         </a>
         <nav aria-label="メインナビゲーション">
+          <a href="#demo">LINE体験</a>
           <a href="#features">特徴</a>
           <a href="#flow">ご利用の流れ</a>
-          <a href="#functions">機能</a>
+          <a href="#pricing">料金</a>
           <a href="#faq">FAQ</a>
         </nav>
         <a className="button button-small" href={siteConfig.contactUrl}>導入相談</a>
@@ -85,8 +90,8 @@ export default function Home() {
             <p className="hero-lead">応募者対応をLINEでスムーズに。<br />企業の採用管理は、使い慣れたGoogleで。</p>
             <p className="hero-note">Rain Recruitは、既存の求人広告から質問・応募・面接予約までをつなぐ採用支援サービスです。</p>
             <div className="hero-actions">
-              <a className="button" href={siteConfig.contactUrl}>導入について相談する <Arrow /></a>
-              <a className="text-link" href="#flow">サービスの流れを見る <span aria-hidden="true">↓</span></a>
+              <a className="button" href={siteConfig.demoUrl} target="_blank" rel="noopener noreferrer">LINE応募を体験する <Arrow /></a>
+              <a className="text-link" href="#pricing">料金を見る <span aria-hidden="true">↓</span></a>
             </div>
           </div>
 
@@ -120,6 +125,29 @@ export default function Home() {
             <div className="proof-number"><strong>44<sup>秒</sup></strong><p>Indeed Applyで応募を<br />完了する時間の中央値</p></div>
           </div>
           <p className="source-note section-shell">出典：Indeed「Indeed Apply: Attract Candidates with a Simplified Application Process」（世界データ、2026年5月更新）。数値はIndeed Applyに関するもので、Rain Recruitの導入効果を保証するものではありません。</p>
+        </section>
+
+        <section className="section demo-section" id="demo" aria-labelledby="demo-title">
+          <div className="section-shell demo-layout">
+            <div className="demo-copy">
+              <p className="section-kicker">TRY IT ON LINE</p>
+              <h2 id="demo-title">説明を読むより、<br />まずLINEで体験。</h2>
+              <p>応募者が実際に使うLINEで、求人への質問から応募、面接日時の選択までの流れをお試しいただけます。</p>
+              <ol className="demo-steps" aria-label="LINE応募体験の内容">
+                <li><span>01</span>求人について質問</li>
+                <li><span>02</span>LINEで応募回答</li>
+                <li><span>03</span>面接日時を選択</li>
+              </ol>
+              <a className="button demo-button" href={siteConfig.demoUrl} target="_blank" rel="noopener noreferrer">LINE応募を体験する <Arrow /></a>
+              <p className="demo-disclaimer">※デモ求人です。実際の求人への応募にはなりません。案内に沿ってサンプル情報でお試しください。</p>
+            </div>
+            <a className="qr-card" href={siteConfig.demoUrl} target="_blank" rel="noopener noreferrer" aria-label="LINEでRain Recruitの応募デモを開く">
+              <span className="qr-badge">無料デモ</span>
+              <Image src="/line-demo-qr.png" width={360} height={360} sizes="280px" alt="Rain RecruitのLINE応募デモを開くQRコード" />
+              <strong>スマートフォンで読み取る</strong>
+              <small>クリックしてLINEを開くこともできます</small>
+            </a>
+          </div>
         </section>
 
         <section className="section challenge-section" aria-labelledby="challenge-title">
@@ -179,6 +207,45 @@ export default function Home() {
             <div className="section-heading center-heading"><p className="section-kicker">FUNCTIONS</p><h2 id="functions-title">採用担当者の確認を、<br />必要なところに集中させる機能。</h2></div>
             <div className="function-grid">
               {functions.map(([icon,title,description]) => <article className="function-card" key={title}><span>{icon}</span><h3>{title}</h3><p>{description}</p></article>)}
+            </div>
+          </div>
+        </section>
+
+        <section className="section pricing-section" id="pricing" aria-labelledby="pricing-title">
+          <div className="section-shell">
+            <div className="section-heading center-heading"><p className="section-kicker">PRICING</p><h2 id="pricing-title">必要な機能を、<br />分かりやすい月額で。</h2><p>LINE応募からGoogleでの採用管理まで。面接評価・記録の必要性に合わせて選べます。</p></div>
+            <div className="pricing-grid">
+              <article className="price-card">
+                <div className="price-card-head"><span>STANDARD</span><h3>スタンダード</h3><p>応募対応と面接調整をスムーズにしたい企業へ。</p></div>
+                <p className="price"><small>月額</small><strong>25,000</strong><span>円</span></p>
+                <p className="tax-note">税別</p>
+                <ul>
+                  <li>LINEでの求人質問・応募フロー</li>
+                  <li>応募内容のAI整理・要約</li>
+                  <li>Googleスプレッドシートでの確認</li>
+                  <li>面接候補送信・カレンダー登録</li>
+                  <li>担当者通知・対応依頼・複数求人</li>
+                </ul>
+                <a className="button price-button" href={siteConfig.contactUrl}>このプランを相談する <Arrow /></a>
+              </article>
+              <article className="price-card price-card-featured">
+                <div className="recommended">面接の記録まで一元化</div>
+                <div className="price-card-head"><span>INTERVIEW SUPPORT</span><h3>面接評価・記録付き</h3><p>面接内容を共通項目で整理し、社内確認をしやすく。</p></div>
+                <p className="price"><small>月額</small><strong>35,000</strong><span>円</span></p>
+                <p className="tax-note">税別</p>
+                <ul>
+                  <li>スタンダードのすべての機能</li>
+                  <li>企業が定めた面接評価項目</li>
+                  <li>担当者が入力したスコア・所見の整理</li>
+                  <li>応募回答と面接記録の一元確認</li>
+                  <li>要確認事項の見える化</li>
+                </ul>
+                <a className="button price-button" href={siteConfig.contactUrl}>このプランを相談する <Arrow /></a>
+              </article>
+            </div>
+            <div className="pricing-notes">
+              <p>※料金は1社あたりの月額・税別です。初期設定費、対応求人・応募数、個別設定の範囲は導入内容を確認のうえご案内します。</p>
+              <p>※面接評価・記録付きプランは、企業が設定した項目と担当者の記録を整理する機能です。AIが人物を自動採点したり、採用・不採用を決定したりするものではありません。</p>
             </div>
           </div>
         </section>
