@@ -12,6 +12,9 @@ test("主要な訴求と安全表現が実装されている", async () => {
     "Rain Recruit自体は求人媒体ではありません",
     "最終判断は必ず企業",
     "性格・表情・声・容姿などを評価せず",
+    "初期設定費",
+    "98,000",
+    "LINE Developersアカウント取得・初期設定サポート",
   ]) assert.match(page, new RegExp(phrase));
 
   for (const anchor of ["demo", "features", "flow", "functions", "pricing", "faq", "contact"]) {
