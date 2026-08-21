@@ -52,6 +52,8 @@ npm audit --omit=dev
 
 Vercel CLIからの本番デプロイ、手動の昇格、エイリアス差し替えは行いません。
 
+接続先Vercelプロジェクト: `rain-recruit-lp`
+
 ## 数値訴求について
 
 79%、+40%、44秒はIndeed Applyに関するIndeed公開データです。Rain Recruit固有の導入効果として表示せず、出典と非保証注記をLP内に併記しています。
