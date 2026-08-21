@@ -42,7 +42,7 @@ const faqs = [
   ["企業側に専用管理画面は必要ですか？", "必要ありません。Googleスプレッドシートで応募者を確認し、Googleカレンダーで面接予定を管理します。"],
   ["複数求人に対応できますか？", "はい。求人ごとにQRコード・LINE導線、質問、FAQ、条件を設定できます。詳細な対応数は導入時に確認します。"],
   ["日程変更やキャンセルにも対応できますか？", "はい。応募者からの変更・キャンセル・相談を対応依頼として整理し、担当者の確認につなげます。"],
-  ["自社のLINE公式アカウントを利用できますか？", "はい。導入企業が所有するLINE公式アカウントへの接続を前提としています。接続条件はヒアリング時に確認します。"],
+  ["自社のLINE公式アカウントを利用できますか？", "はい。導入企業が所有するLINE公式アカウントへの接続を前提としています。未取得の場合は、LINE公式アカウントの開設とLINE Developersアカウントの取得・初期設定をサポートします。作成したアカウントは導入企業が所有します。"],
   ["応募者データは誰が所有しますか？", "LINE公式アカウント、Googleアカウント、応募者データは導入企業が所有します。具体的な取扱いは契約・運用設計時に明確にします。"],
   ["面接評価・記録付きプランでは、AIが応募者を採点しますか？", "いいえ。企業が定めた評価項目に沿って、採用担当者が入力したスコアや所見を整理する機能です。性格・表情・声・容姿などをAIが評価したり、スコアだけで採用・不採用を決定したりするものではありません。"],
 ];
@@ -59,8 +59,8 @@ export default function Home() {
     description: "LINEでの応募者対応とGoogleでの採用管理をつなぐ採用支援サービス",
     url: siteConfig.siteUrl,
     offers: [
-      { "@type": "Offer", name: "スタンダード", price: "25000", priceCurrency: "JPY" },
-      { "@type": "Offer", name: "面接評価・記録付き", price: "35000", priceCurrency: "JPY" },
+      { "@type": "Offer", name: "スタンダード", price: "25000", priceCurrency: "JPY", description: "初期設定費98,000円（税別）、月額25,000円（税別）" },
+      { "@type": "Offer", name: "面接評価・記録付き", price: "35000", priceCurrency: "JPY", description: "初期設定費98,000円（税別）、月額35,000円（税別）" },
     ],
   };
 
@@ -213,7 +213,11 @@ export default function Home() {
 
         <section className="section pricing-section" id="pricing" aria-labelledby="pricing-title">
           <div className="section-shell">
-            <div className="section-heading center-heading"><p className="section-kicker">PRICING</p><h2 id="pricing-title">必要な機能を、<br />分かりやすい月額で。</h2><p>LINE応募からGoogleでの採用管理まで。面接評価・記録の必要性に合わせて選べます。</p></div>
+            <div className="section-heading center-heading"><p className="section-kicker">PRICING</p><h2 id="pricing-title">必要な機能を、<br />分かりやすい料金で。</h2><p>LINE応募からGoogleでの採用管理まで。面接評価・記録の必要性に合わせて選べます。</p></div>
+            <div className="setup-fee-card">
+              <div className="setup-fee-price"><span>INITIAL SETUP</span><h3>初期設定費</h3><p><strong>98,000</strong><b>円</b><small>税別・両プラン共通</small></p></div>
+              <div className="setup-fee-details"><p>運用開始に必要なアカウントと応募フローを一緒に整えます。</p><ul><li>求人・質問・FAQ・条件設定</li><li>LINE公式アカウント開設／LINE Developersアカウント取得・初期設定サポート</li><li>Googleスプレッドシート／カレンダー接続</li><li>応募・通知・面接予約の動作テスト</li></ul></div>
+            </div>
             <div className="pricing-grid">
               <article className="price-card">
                 <div className="price-card-head"><span>STANDARD</span><h3>スタンダード</h3><p>応募対応と面接調整をスムーズにしたい企業へ。</p></div>
@@ -244,7 +248,8 @@ export default function Home() {
               </article>
             </div>
             <div className="pricing-notes">
-              <p>※料金は1社あたりの月額・税別です。初期設定費、対応求人・応募数、個別設定の範囲は導入内容を確認のうえご案内します。</p>
+              <p>※初期設定費・月額料金は1社あたり・税別です。対応求人・応募数、追加の個別設定が必要な場合は、導入内容を確認のうえご案内します。</p>
+              <p>※LINE公式アカウントの開設とLINE Developersアカウントの取得・初期設定をサポートします。作成したアカウントと応募者データは導入企業が所有します。</p>
               <p>※面接評価・記録付きプランは、企業が設定した項目と担当者の記録を整理する機能です。AIが人物を自動採点したり、採用・不採用を決定したりするものではありません。</p>
             </div>
           </div>
@@ -257,7 +262,7 @@ export default function Home() {
               <article><span>01</span><div><h3>最終判断は採用担当者</h3><p>面接実施、採用・不採用の最終判断は必ず企業が行います。</p></div></article>
               <article><span>02</span><div><h3>AIは情報整理と回答支援</h3><p>性格・表情・声・容姿などを評価せず、回答の整理・要約に限定します。</p></div></article>
               <article><span>03</span><div><h3>承認済みの質問・ルール</h3><p>企業が事前に確認した質問順、FAQ、客観的条件にもとづき制御します。</p></div></article>
-              <article><span>04</span><div><h3>企業がアカウントとデータを所有</h3><p>LINE公式アカウント、Googleアカウント、応募者データは導入企業が所有します。</p></div></article>
+              <article><span>04</span><div><h3>企業がアカウントとデータを所有</h3><p>LINE公式アカウント、LINE Developers、Googleアカウント、応募者データは導入企業が所有します。</p></div></article>
             </div>
           </div>
         </section>
@@ -266,7 +271,7 @@ export default function Home() {
           <div className="section-shell">
             <div className="section-heading center-heading"><p className="section-kicker">ONBOARDING</p><h2 id="onboarding-title">導入前に一緒に整え、<br />確認してから始めます。</h2></div>
             <ol className="onboarding-list">
-              {["ヒアリング","求人・質問・FAQ・条件設定","LINE／Google接続","動作テスト","運用開始"].map((item,index) => <li key={item}><span>{String(index+1).padStart(2,"0")}</span><b>{item}</b></li>)}
+              {["ヒアリング","求人・質問・FAQ・条件設定","LINE Developers／Google接続","動作テスト","運用開始"].map((item,index) => <li key={item}><span>{String(index+1).padStart(2,"0")}</span><b>{item}</b></li>)}
             </ol>
             <p className="onboarding-note">運用中の求人内容や応募フローに合わせて、必要な設定を確認します。</p>
           </div>
