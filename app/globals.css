@@ -111,6 +111,11 @@ h1 { margin:0; max-width:660px; font-size:clamp(39px,4.15vw,62px); line-height:1
 .real-ui-intro ul { margin:28px 0 0; padding:0; list-style:none; }
 .real-ui-intro li { position:relative; margin:12px 0; padding-left:25px; font-size:13px; font-weight:650; }
 .real-ui-intro li::before { content:"✓"; position:absolute; left:0; color:var(--teal); }
+.manual-download { display:inline-flex; align-items:center; gap:14px; margin-top:24px; padding:14px 18px; color:var(--navy); background:white; border:1px solid #badbd6; border-radius:10px; font-size:13px; font-weight:750; box-shadow:0 10px 24px rgba(8,72,68,.08); transition:.2s ease; }
+.manual-download:hover { color:var(--teal); border-color:var(--teal); transform:translateY(-1px); }
+.manual-download>span:first-child { display:grid; place-items:center; width:34px; height:34px; flex:0 0 34px; color:white; background:var(--teal); border-radius:50%; font-size:18px; }
+.manual-download>span:last-child { display:grid; gap:2px; }
+.manual-download small { color:var(--muted); font-size:10px; font-weight:600; }
 .ui-showcase { position:relative; min-height:530px; }
 .ui-window { margin:0; position:absolute; overflow:hidden; border:7px solid white; border-radius:17px; background:white; box-shadow:0 30px 70px rgba(24,78,76,.16); }
 .ui-window img { display:block; width:100%; height:100%; object-fit:cover; object-position:top left; }

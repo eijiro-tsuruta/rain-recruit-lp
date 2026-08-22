@@ -49,3 +49,12 @@ test("旧Vercel URLは独自ドメインへ恒久転送される", async () => {
   assert.match(nextConfig, /type: "host"/);
   assert.match(nextConfig, /permanent: true/);
 });
+
+test("専用UIを増やさない項目から取扱説明書PDFをダウンロードできる", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+
+  assert.match(page, /href="\/rain-recruit-spreadsheet-manual\.pdf"/);
+  assert.match(page, /download/);
+  assert.match(page, /スプレッドシート取扱説明書をダウンロード/);
+  await access(new URL("public/rain-recruit-spreadsheet-manual.pdf", root));
+});

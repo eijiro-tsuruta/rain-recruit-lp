@@ -179,7 +179,7 @@ export default function Home() {
 
         <section className="section real-ui-section" aria-labelledby="real-ui-title">
           <div className="section-shell">
-            <div className="real-ui-intro"><p className="section-kicker">FAMILIAR TOOLS</p><h2 id="real-ui-title">専用UIを、<br />あえて増やさない。</h2><p>毎日使うGoogleの中に採用業務を置くから、新しい管理画面を覚える必要はありません。権限のある担当者が、PCでもスマートフォンでも同じ情報を確認できます。</p><ul><li>導入時の操作教育をシンプルに</li><li>応募者・面接・対応依頼を迷わず確認</li><li>企業がアカウントとデータを所有</li></ul></div>
+            <div className="real-ui-intro"><p className="section-kicker">FAMILIAR TOOLS</p><h2 id="real-ui-title">専用UIを、<br />あえて増やさない。</h2><p>毎日使うGoogleの中に採用業務を置くから、新しい管理画面を覚える必要はありません。権限のある担当者が、PCでもスマートフォンでも同じ情報を確認できます。</p><ul><li>導入時の操作教育をシンプルに</li><li>応募者・面接・対応依頼を迷わず確認</li><li>企業がアカウントとデータを所有</li></ul><a className="manual-download" href="/rain-recruit-spreadsheet-manual.pdf" download><span aria-hidden="true">↓</span><span><small>PDF・全12ページ</small>スプレッドシート取扱説明書をダウンロード</span></a></div>
             <div className="ui-showcase">
               <figure className="ui-window ui-main"><div className="window-bar"><span/><span/><span/><small>Google スプレッドシート</small></div><Image src="/sheets-dashboard.png" width={2000} height={1160} sizes="(max-width: 900px) 90vw, 620px" alt="Rain RecruitのGoogleスプレッドシート操作メニュー画面" /><figcaption>設定から応募・面接確認まで、入口をひとつに。</figcaption></figure>
               <figure className="ui-window ui-sub"><div className="window-bar"><span/><span/><span/><small>対応依頼</small></div><Image src="/sheets-requests.png" width={2000} height={1160} sizes="(max-width: 900px) 75vw, 480px" alt="変更、キャンセル、相談を管理する対応依頼シート" /><figcaption>人の対応が必要な依頼だけを、分かりやすく。</figcaption></figure>
