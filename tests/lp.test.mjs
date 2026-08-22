@@ -33,6 +33,8 @@ test("SEO・問い合わせ設定・公開画像が揃っている", async () =>
   assert.match(config, /NEXT_PUBLIC_CONTACT_URL/);
   assert.match(config, /NEXT_PUBLIC_DEMO_URL/);
   assert.match(config, /NEXT_PUBLIC_SITE_URL/);
+  assert.match(config, /https:\/\/recruit\.rainaiproject\.com/);
+  assert.doesNotMatch(config, /rain-recruit-lp\.vercel\.app/);
 
   for (const asset of ["og.png", "line-demo-qr.png", "line-application.png", "sheets-dashboard.png", "sheets-requests.png", "google-calendar.png"]) {
     await access(new URL(`public/${asset}`, root));
