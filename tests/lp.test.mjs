@@ -40,3 +40,12 @@ test("SEO・問い合わせ設定・公開画像が揃っている", async () =>
     await access(new URL(`public/${asset}`, root));
   }
 });
+
+test("旧Vercel URLは独自ドメインへ恒久転送される", async () => {
+  const nextConfig = await readFile(new URL("next.config.ts", root), "utf8");
+
+  assert.match(nextConfig, /rain-recruit-lp\.vercel\.app/);
+  assert.match(nextConfig, /https:\/\/recruit\.rainaiproject\.com\/:path\*/);
+  assert.match(nextConfig, /type: "host"/);
+  assert.match(nextConfig, /permanent: true/);
+});
